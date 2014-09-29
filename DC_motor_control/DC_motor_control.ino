@@ -34,7 +34,7 @@ void loop(){
   
   // If the output signal is a positive value, send the signal through
   // the output pin that handles positive values
-  if(correctedReading >= 0){
+  if(outputSignal >= 0){
     analogWrite(posMotorPin, outputSignal);
   }
   // If the output signal is a negative value, send the singal through

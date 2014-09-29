@@ -24,7 +24,7 @@ void loop(){
   // (255 is the Arduino max PWM duty cycle. Positive values will drive the
   // motor in one direction, negative values will drive it the other)
   // (Consequently, 0 motor speed will be directly in between 0-1023)
-  outputSignal = map(potreading, 0, 1023, -255, 255);
+  int outputSignal = map(potreading, 0, 1023, -255, 255);
   
   // Print the readings to the serial monitor so we can see what's going on
   Serial.print("Pot reading: ");
@@ -40,6 +40,7 @@ void loop(){
   // If the output signal is a negative value, send the singal through
   // the output pin that handles negative values
   else{
-    analogWrite(negMotorPin, abs(outputSignal));
+    outputSignal = abs(outputSignal);
+    analogWrite(negMotorPin, outputSignal);
   }  
 }

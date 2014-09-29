@@ -40,6 +40,6 @@ void loop(){
   // If the output signal is a negative value, send the singal through
   // the output pin that handles negative values
   else{
-    analogWrite(negMotorPin, outputSignal);
+    analogWrite(negMotorPin, abs(outputSignal));
   }  
 }
